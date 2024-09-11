@@ -48,15 +48,15 @@ def delete(id):
 @book_blueprint.route('/<int:id>/edit', endpoint='edit', methods=['GET', 'POST'])
 def edit(id):
     book = db.get_or_404(Book, id)
-    form = EditForm(obj=book)  # Prepopulate form with book data
+    form = EditForm(obj=book)
 
-    if form.validate_on_submit():  # If POST request and form is validated
-        # Update book fields with form data
+    if form.validate_on_submit():
+
         book.title = form.title.data
         book.description = form.description.data
         book.image = form.image.data
         book.num_pages = form.num_pages.data
-        db.session.commit()  # Save changes to the database
-        return redirect(book.show_url)  # Redirect to the book's detail page
+        db.session.commit()
+        return redirect(book.show_url)
 
     return render_template('books/forms/edit.html', form=form, book=book)

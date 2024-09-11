@@ -6,25 +6,35 @@
 <div class="card text-bg-dark w-50 ">
   <img src="{{book.image_url}}" class="card-img " alt="...">
   <div class="card-img-overlay">
+
     <h5 class="card-title fs-3 fw-bold">{{book.title}}</h5>
+
     <p class="card-text fs-4"> {{book.description}}</p>
+
     <p class="card-text fs-4 "><small>Number Of Pages: {{book.num_pages}}</small></p>
 
 
+</div>
 
 </div>
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
   <button type="button" class="btn btn-success">
+
       <form action="{{ book.edit_url }}" method="GET">
                 <input type="submit" value="Edit" class="btn ">
-            </form> </button>
+      </form>
+
+  </button>
 
   <button type="button" class="btn btn-warning">
       <a href="{{ url_for('books.landing') }}" class="btn ">Back to all Books</a>
-</button>
-  <button type="button" class="btn btn-danger">      <form action="{{ book.delete_url }}" method="POST">
-                <input type="submit" value="Delete" class="btn ">
-            </form></button>
+  </button>
+  <button type="button" class="btn btn-danger">
+      <form action="{{ book.delete_url }}" method="POST">
+          <input type="submit" value="Delete" class="btn ">
+      </form>
+
+  </button>
 </div>
 
 {% endblock %}
